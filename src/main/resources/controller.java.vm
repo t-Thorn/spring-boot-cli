@@ -1,0 +1,92 @@
+package ${package.Controller};
+
+import com.macro.mall.tiny.common.api.CommonResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import ${package.Service}.${table.serviceName};
+import ${package.Entity}.${entity};
+import java.util.List;
+import org.springframework.web.bind.annotation.*;
+
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * <p>
+ * $!{table.comment} 前端控制器
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("#if(${package.ModuleName})#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+
+    @Autowired
+    public ${table.serviceName} ${table.entityPath}Service;
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult create(@RequestBody ${entity} ${table.entityPath}) {
+        boolean success = ${table.entityPath}Service.save(${table.entityPath});
+        if (success) {
+            return CommonResult.success(null);
+        }
+        return CommonResult.failed();
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult update(@PathVariable Long id, @RequestBody ${entity} ${table.entityPath}) {
+        ${table.entityPath}.setId(id);
+        boolean success = ${table.entityPath}Service.updateById(${table.entityPath});
+        if (success) {
+            return CommonResult.success(null);
+        }
+        return CommonResult.failed();
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult delete(@PathVariable Long id) {
+        boolean success = ${table.entityPath}Service.removeById(id);
+        if (success) {
+            return CommonResult.success(null);
+        }
+        return CommonResult.failed();
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult deleteBatch(@RequestParam("ids") List<Long> ids) {
+        boolean success = ${table.entityPath}Service.removeByIds(ids);
+        if (success) {
+            return CommonResult.success(null);
+        }
+        return CommonResult.failed();
+    }
+
+
+    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<${entity}>> listAll() {
+        List<${entity}> ${table.entityPath}List = ${table.entityPath}Service.list();
+        return CommonResult.success(${table.entityPath}List);
+    }
+}
+
+#end
