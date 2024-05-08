@@ -44,7 +44,8 @@ mall-tiny项目可无缝对接`mall-admin-web`前端项目，秒变权限管理�
 
 ### 环境搭建
 
-简化依赖服务，只需安装最常用的MySql和Redis服务即可，服务安装具体参考[mall在Windows环境下的部署](https://mp.weixin.qq.com/s/Q9ybpfq8IEdbZmvlaMXJdg)，数据库中需要导入`mall_tiny.sql`脚本。
+简化依赖服务，只需安装最常用的MySql和Redis服务即可，服务安装具体参考[mall在Windows环境下的部署](https://mp.weixin.qq.com/s/Q9ybpfq8IEdbZmvlaMXJdg)
+，数据库中需要导入`ums.sql`脚本。
 
 ### 开发规约
 
@@ -241,31 +242,31 @@ public interface UmsMenuMapper extends BaseMapper<UmsMenu> {
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.macro.mall.tiny.modules.ums.mapper.UmsMenuMapper">
+<mapper namespace="com.thorn.bbs.modules.ums.mapper.UmsMenuMapper">
 
-    <select id="getMenuList" resultType="com.macro.mall.tiny.modules.ums.model.UmsMenu">
+    <select id="getMenuList" resultType="com.thorn.bbs.modules.ums.model.UmsMenu">
         SELECT
-            m.id id,
-            m.parent_id parentId,
-            m.create_time createTime,
-            m.title title,
-            m.level level,
-            m.sort sort,
-            m.name name,
-            m.icon icon,
-            m.hidden hidden
+        m.id id,
+        m.parent_id parentId,
+        m.create_time createTime,
+        m.title title,
+        m.level level,
+        m.sort sort,
+        m.name name,
+        m.icon icon,
+        m.hidden hidden
         FROM
-            ums_admin_role_relation arr
-                LEFT JOIN ums_role r ON arr.role_id = r.id
-                LEFT JOIN ums_role_menu_relation rmr ON r.id = rmr.role_id
-                LEFT JOIN ums_menu m ON rmr.menu_id = m.id
+        ums_admin_role_relation arr
+        LEFT JOIN ums_role r ON arr.role_id = r.id
+        LEFT JOIN ums_role_menu_relation rmr ON r.id = rmr.role_id
+        LEFT JOIN ums_menu m ON rmr.menu_id = m.id
         WHERE
-            arr.admin_id = #{adminId}
-          AND m.id IS NOT NULL
+        arr.admin_id = #{adminId}
+        AND m.id IS NOT NULL
         GROUP BY
-            m.id
+        m.id
     </select>
-    
+
 </mapper>
 ```
 

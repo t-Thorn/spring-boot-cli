@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.macro.mall</groupId>
-    <artifactId>mall-tiny</artifactId>
+    <groupId>com.thorn.bbs</groupId>
+    <artifactId>bbs</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>mall-tiny</name>
-    <description>mall-tiny project</description>
+    <name>bbs</name>
+    <description>bbs project</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,6 +24,7 @@
         <jjwt.version>0.9.0</jjwt.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <velocity.version>2.2</velocity.version>
+        <hutool.version>5.7.11</hutool.version>
     </properties>
 
     <parent>
@@ -142,6 +143,11 @@
             <artifactId>velocity-engine-core</artifactId>
             <version>${velocity.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -164,7 +170,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <imageName>mall-tiny/${project.artifactId}:${project.version}</imageName>
+                    <imageName>bbs/${project.artifactId}:${project.version}</imageName>
                     <dockerHost>${docker.host}</dockerHost>
                     <baseImage>java:8</baseImage>
                     <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]

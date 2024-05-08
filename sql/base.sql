@@ -10,7 +10,7 @@ create table tb_post
     status      tinyint unsigned                                                null comment '帖子状态 1=草稿 2=待审核 3=审核通过 4=审核不通过 5=已发布 6=下架',
     heat        int unsigned                                                    null comment '帖子热度',
     reply_count int unsigned                                                    null comment '回复数量',
-    deleted     boolean                                                         null comment '是否删除',
+    deleted boolean default false null comment '是否删除',
     create_time timestamp default CURRENT_TIMESTAMP                             null comment '创建时间',
     update_time timestamp default CURRENT_TIMESTAMP on update current_timestamp null comment '更新时间'
 );
@@ -19,7 +19,7 @@ create table tb_reply
     id          int unsigned                                                    null comment '自增id' primary key,
     owner_id    int unsigned                                                    null comment '回复所有者id',
     content     text                                                            null comment '回复内容',
-    deleted     boolean                                                         null comment '是否删除',
+    deleted boolean default false null comment '是否删除',
     create_time timestamp default CURRENT_TIMESTAMP                             null comment '创建时间',
     update_time timestamp default CURRENT_TIMESTAMP on update current_timestamp null comment '更新时间'
 );
@@ -28,7 +28,7 @@ create table tb_global_config
 (
     id          int unsigned                                                    null comment '自增id' primary key,
     content     longtext                                                        null comment '回复内容',
-    deleted     boolean                                                         null comment '是否删除',
+    deleted boolean default false null comment '是否删除',
     create_time timestamp default CURRENT_TIMESTAMP                             null comment '创建时间',
     update_time timestamp default CURRENT_TIMESTAMP on update current_timestamp null comment '更新时间'
 );
