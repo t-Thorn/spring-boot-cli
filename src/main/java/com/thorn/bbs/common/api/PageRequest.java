@@ -17,7 +17,7 @@ import lombok.Data;
 public class PageRequest {
 
     @ApiModelProperty("页码")
-    private Integer pageNumber;
+    private Integer pageNo;
     @ApiModelProperty("分页大小")
     private Integer pageSize;
 }

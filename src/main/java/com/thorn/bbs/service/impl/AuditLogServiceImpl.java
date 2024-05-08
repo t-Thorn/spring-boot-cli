@@ -22,7 +22,7 @@ import java.util.Objects;
 public class AuditLogServiceImpl extends ServiceImpl<AuditLogMapper, AuditLog> implements AuditLogService {
     @Override
     public Page<AuditLog> listPage(AuditLogListRequest request) {
-        Page<AuditLog> page = new Page<>(request.getPageNumber(), request.getPageSize());
+        Page<AuditLog> page = new Page<>(request.getPageNo(), request.getPageSize());
         LambdaQueryWrapper<AuditLog> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Objects.nonNull(request.getSuccess()), AuditLog::isSuccess, request.getSuccess())
                 .eq(StringUtils.isNotBlank(request.getClientIp()), AuditLog::getClientIp, request.getClientIp())
