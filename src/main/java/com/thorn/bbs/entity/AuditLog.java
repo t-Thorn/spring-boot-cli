@@ -2,6 +2,7 @@ package com.thorn.bbs.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,52 +19,30 @@ import java.util.Date;
 @TableName("tb_audit_log")
 public class AuditLog extends Model<AuditLog> {
     private static final long serialVersionUID = -36364198596208177L;
-    /**
-     * 自增id
-     */
+    @ApiModelProperty(value = " 自增id")
     private Long id;
-    /**
-     * 是否成功
-     */
+    @ApiModelProperty(value = " 是否成功")
     private boolean success;
-    /**
-     * 异常信息
-     */
+    @ApiModelProperty(value = " 异常信息")
     private String exception;
-    /**
-     * 客户端ip
-     */
+    @ApiModelProperty(value = " 客户端ip")
     private String clientIp;
-    /**
-     * 方法名
-     */
+    @ApiModelProperty(value = " 方法名")
     private String methodName;
-    /**
-     * 类名
-     */
+    @ApiModelProperty(value = " 类名")
     private String className;
-    /**
-     * 用户id
-     */
+    @ApiModelProperty(value = " 用户id")
     private Long userId;
-    /**
-     * 操作
-     */
+    @ApiModelProperty(value = " 用户名称")
+    private String username;
+    @ApiModelProperty(value = " 操作")
     private String operation;
-    /**
-     * 请求参数
-     */
+    @ApiModelProperty(value = " 请求参数")
     private String requestParam;
-    /**
-     * 响应
-     */
+    @ApiModelProperty(value = " 响应")
     private String response;
-    /**
-     * 创建时间
-     */
+    @ApiModelProperty(value = " 创建时间")
     private Date createTime;
-    /**
-     * 更新时间
-     */
+    @ApiModelProperty(value = " 更新时间")
     private Date updateTime;
 }

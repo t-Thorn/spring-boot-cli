@@ -1,6 +1,7 @@
 package com.thorn.bbs.common.api;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,4 +21,8 @@ public class PageRequest {
     private Integer pageNo;
     @ApiModelProperty("分页大小")
     private Integer pageSize;
+
+    public <E> Page<E> convert(E e) {
+        return new Page<>(pageNo, pageSize);
+    }
 }

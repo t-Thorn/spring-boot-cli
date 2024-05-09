@@ -25,11 +25,11 @@ public class AuditLogServiceImpl extends ServiceImpl<AuditLogMapper, AuditLog> i
         Page<AuditLog> page = new Page<>(request.getPageNo(), request.getPageSize());
         LambdaQueryWrapper<AuditLog> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Objects.nonNull(request.getSuccess()), AuditLog::isSuccess, request.getSuccess())
-                .eq(StringUtils.isNotBlank(request.getClientIp()), AuditLog::getClientIp, request.getClientIp())
-                .eq(StringUtils.isNotBlank(request.getMethodName()), AuditLog::getMethodName, request.getMethodName())
-                .eq(StringUtils.isNotBlank(request.getClassName()), AuditLog::getClassName, request.getClassName())
-                .eq(StringUtils.isNotBlank(request.getOperation()), AuditLog::getOperation, request.getOperation())
-                .eq(Objects.nonNull(request.getUserId()), AuditLog::getUserId, request.getUserId())
+                .like(StringUtils.isNotBlank(request.getClientIp()), AuditLog::getClientIp, request.getClientIp())
+                .like(StringUtils.isNotBlank(request.getMethodName()), AuditLog::getMethodName, request.getMethodName())
+                .like(StringUtils.isNotBlank(request.getClassName()), AuditLog::getClassName, request.getClassName())
+                .like(StringUtils.isNotBlank(request.getOperation()), AuditLog::getOperation, request.getOperation())
+                .eq(StringUtils.isNotBlank(request.getUsername()), AuditLog::getUsername, request.getUsername())
                 .between(Objects.nonNull(request.getCreateBeginTime()) && Objects.nonNull(request.getCreateEndTime()), AuditLog::getCreateTime, request.getCreateBeginTime(),
                         request.getCreateEndTime())
                 .orderByDesc(AuditLog::getId);

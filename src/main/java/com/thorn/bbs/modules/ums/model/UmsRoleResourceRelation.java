@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -36,9 +35,11 @@ public class UmsRoleResourceRelation implements Serializable {
 
     @ApiModelProperty(value = "资源ID")
     private Long resourceId;
+    @ApiModelProperty(value = "是否删除")
     @TableLogic
     private Boolean deleted;
 
-    private Date updateTime;
+    @ApiModelProperty(value = "是否删除")
+    private Boolean updateTime;
 
 }

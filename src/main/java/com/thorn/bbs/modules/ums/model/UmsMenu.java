@@ -55,8 +55,10 @@ public class UmsMenu implements Serializable {
     @ApiModelProperty(value = "前端隐藏")
     private Integer hidden;
 
+    @ApiModelProperty(value = "是否删除")
     @TableLogic
     private Boolean deleted;
 
-    private Date updateTime;
+    @ApiModelProperty(value = "是否删除")
+    private Boolean updateTime;
 }

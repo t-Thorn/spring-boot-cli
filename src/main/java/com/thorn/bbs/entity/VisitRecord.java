@@ -2,6 +2,7 @@ package com.thorn.bbs.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,28 +19,16 @@ import java.util.Date;
 @TableName("tb_visit_record")
 public class VisitRecord extends Model<VisitRecord> {
     private static final long serialVersionUID = 163528200590087944L;
-    /**
-     * 自增id
-     */
+    @ApiModelProperty(value = " 自增id")
     private Long id;
-    /**
-     * 客户端ip
-     */
+    @ApiModelProperty(value = " 客户端ip")
     private String clientIp;
-    /**
-     * 客户端地区
-     */
+    @ApiModelProperty(value = " 客户端地区")
     private String clientArea;
-    /**
-     * 访问类型1=导航 2=帖子
-     */
+    @ApiModelProperty(value = " 访问类型1=导航 2=帖子")
     private Integer visitType;
-    /**
-     * 创建时间
-     */
+    @ApiModelProperty(value = " 创建时间")
     private Date createTime;
-    /**
-     * 更新时间
-     */
+    @ApiModelProperty(value = " 更新时间")
     private Date updateTime;
 }

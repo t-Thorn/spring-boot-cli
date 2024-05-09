@@ -2,6 +2,7 @@ package com.thorn.bbs.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,24 +19,26 @@ import java.util.Date;
 @TableName("tb_global_config")
 public class GlobalConfig extends Model<GlobalConfig> {
     private static final long serialVersionUID = 648734278190493162L;
-    /**
-     * 自增id
-     */
+    @ApiModelProperty(value = " 自增id")
     private Long id;
-    /**
-     * 回复内容
-     */
-    private String content;
-    /**
-     * 是否删除
-     */
+    @ApiModelProperty(value = " 唯一键")
+    private String uniqueKey;
+    @ApiModelProperty(value = " 帖子照片")
+    private String postImg;
+    @ApiModelProperty(value = " 背景图base64")
+    private String bgImg;
+    @ApiModelProperty(value = " 背景颜色")
+    private String bgColor;
+    @ApiModelProperty(value = " 广告图 base64")
+    private String adImg;
+    @ApiModelProperty(value = " 广告备注")
+    private String adRemark;
+    @ApiModelProperty(value = " 版权信息")
+    private String copyRight;
+    @ApiModelProperty(value = " 是否删除")
     private Integer deleted;
-    /**
-     * 创建时间
-     */
+    @ApiModelProperty(value = " 创建时间")
     private Date createTime;
-    /**
-     * 更新时间
-     */
+    @ApiModelProperty(value = " 更新时间")
     private Date updateTime;
 }

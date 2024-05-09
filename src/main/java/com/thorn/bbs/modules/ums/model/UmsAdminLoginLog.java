@@ -41,9 +41,11 @@ public class UmsAdminLoginLog implements Serializable {
 
     @ApiModelProperty(value = "浏览器登录类型")
     private String userAgent;
+    @ApiModelProperty(value = "是否删除")
     @TableLogic
     private Boolean deleted;
 
-    private Date updateTime;
+    @ApiModelProperty(value = "是否删除")
+    private Boolean updateTime;
 
 }

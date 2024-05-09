@@ -56,8 +56,10 @@ public class UmsAdmin implements Serializable {
     @ApiModelProperty(value = "帐号启用状态：0->禁用；1->启用")
     private Integer status;
 
+    @ApiModelProperty(value = "是否删除")
     @TableLogic
     private Boolean deleted;
 
-    private Date updateTime;
+    @ApiModelProperty(value = "是否删除")
+    private Boolean updateTime;
 }

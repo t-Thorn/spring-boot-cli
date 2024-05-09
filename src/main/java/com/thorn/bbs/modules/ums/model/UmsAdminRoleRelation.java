@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -33,9 +33,11 @@ public class UmsAdminRoleRelation implements Serializable {
     private Long adminId;
 
     private Long roleId;
+    @ApiModelProperty(value = "是否删除")
     @TableLogic
     private Boolean deleted;
 
-    private Date updateTime;
+    @ApiModelProperty(value = "是否删除")
+    private Boolean updateTime;
 
 }

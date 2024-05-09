@@ -27,7 +27,13 @@ create table tb_reply
 create table tb_global_config
 (
     id          int unsigned                                                    null comment '自增id' primary key,
-    content     longtext                                                        null comment '回复内容',
+    unique_key varchar(128) null comment '唯一键,如域名等',
+    bg_img     blob         null comment '背景图片',
+    bg_color   char(6)      null comment '背景颜色',
+    post_img   blob         null comment '帖子标签图',
+    ad_img     blob         null comment '广告图',
+    ad_remark  varchar(512) null comment '广告备注',
+    copyright  text         null comment '版权信息',
     deleted boolean default false null comment '是否删除',
     create_time timestamp default CURRENT_TIMESTAMP                             null comment '创建时间',
     update_time timestamp default CURRENT_TIMESTAMP on update current_timestamp null comment '更新时间'
@@ -42,6 +48,7 @@ create table tb_audit_log
     method_name   varchar(64)                                                     null comment '方法名',
     class_name    varchar(128)                                                    null comment '类名',
     user_id       int unsigned                                                    null comment '用户id',
+    username varchar(64) null comment '操作人名',
     operation     varchar(64)                                                     null comment '操作',
     request_param text                                                            null comment '请求参数',
     response      text                                                            null comment '响应',

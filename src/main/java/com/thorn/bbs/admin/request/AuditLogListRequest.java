@@ -27,8 +27,8 @@ public class AuditLogListRequest extends PageRequest {
     private String methodName;
     @ApiModelProperty("类名")
     private String className;
-    @ApiModelProperty("用户id")
-    private Long userId;
+    @ApiModelProperty("用户名")
+    private String username;
     @ApiModelProperty("操作")
     private String operation;
     @ApiModelProperty("创建时间-开始")

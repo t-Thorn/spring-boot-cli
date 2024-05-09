@@ -2,6 +2,7 @@ package com.thorn.bbs.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,40 +19,22 @@ import java.util.Date;
 @TableName("tb_navigation")
 public class Navigation extends Model<Navigation> {
     private static final long serialVersionUID = -38939952446579985L;
-    /**
-     * 自增id
-     */
+    @ApiModelProperty(value = " 自增id")
     private Long id;
-    /**
-     * 标题
-     */
+    @ApiModelProperty(value = " 标题")
     private String title;
-    /**
-     * tab名
-     */
+    @ApiModelProperty(value = " tab名")
     private String tabName;
-    /**
-     * 颜色
-     */
+    @ApiModelProperty(value = " 颜色")
     private String tabColor;
-    /**
-     * 地址
-     */
+    @ApiModelProperty(value = " 地址")
     private String tabUrl;
-    /**
-     * 状态
-     */
+    @ApiModelProperty(value = " 状态")
     private Integer status;
-    /**
-     * 是否删除
-     */
+    @ApiModelProperty(value = " 是否删除")
     private Integer deleted;
-    /**
-     * 创建时间
-     */
+    @ApiModelProperty(value = " 创建时间")
     private Date createTime;
-    /**
-     * 更新时间
-     */
+    @ApiModelProperty(value = " 更新时间")
     private Date updateTime;
 }

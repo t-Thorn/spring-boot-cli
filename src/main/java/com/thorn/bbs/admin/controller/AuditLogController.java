@@ -6,6 +6,7 @@ import com.thorn.bbs.common.api.CommonPage;
 import com.thorn.bbs.common.api.CommonResult;
 import com.thorn.bbs.entity.AuditLog;
 import com.thorn.bbs.service.AuditLogService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,7 @@ import javax.annotation.Resource;
  **/
 @RestController
 @RequestMapping("/auditLog")
+@Api(tags = "审计日志")
 public class AuditLogController {
 
     @Resource
