@@ -21,6 +21,8 @@ public class Reply extends Model<Reply> {
     private static final long serialVersionUID = 227767585846802115L;
     @ApiModelProperty(value = " 自增id")
     private Long id;
+    @ApiModelProperty(value = " 帖子id")
+    private Long postId;
     @ApiModelProperty(value = " 回复所有者id")
     private Long ownerId;
     @ApiModelProperty(value = " 回复内容")

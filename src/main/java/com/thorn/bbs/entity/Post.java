@@ -22,19 +22,21 @@ public class Post extends Model<Post> {
     @ApiModelProperty(value = " 自增id")
     private Long id;
     @ApiModelProperty(value = " 帖子名称")
-    private Integer postName;
+    private String postName;
     @ApiModelProperty(value = " 帖子类型 1=常规 2=广告")
-    private Object postType;
+    private Integer postType;
     @ApiModelProperty(value = " 放置到首页")
-    private Integer onHome;
+    private Boolean onHome;
     @ApiModelProperty(value = " 帖子排序越大优先级越高")
-    private Object postOrder;
+    private Integer postOrder;
     @ApiModelProperty(value = " 帖子内容")
     private String content;
     @ApiModelProperty(value = " 帖子所有者id")
     private Long ownerId;
+    @ApiModelProperty(value = " 帖子所有者key")
+    private String ownerKey;
     @ApiModelProperty(value = " 帖子状态 1=草稿 2=待审核 3=审核通过 4=审核不通过 5=已发布 6=下架")
-    private Object status;
+    private Integer status;
     @ApiModelProperty(value = " 帖子热度")
     private Long heat;
     @ApiModelProperty(value = " 回复数量")

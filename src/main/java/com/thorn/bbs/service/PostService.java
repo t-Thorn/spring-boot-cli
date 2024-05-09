@@ -1,6 +1,8 @@
 package com.thorn.bbs.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.thorn.bbs.api.request.PostListRequest;
 import com.thorn.bbs.entity.Post;
 
 /**
@@ -10,4 +12,5 @@ import com.thorn.bbs.entity.Post;
  * @since 2024-05-07 10:31:42
  */
 public interface PostService extends IService<Post> {
+    Page<Post> listPage(PostListRequest request);
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thorn.bbs.mapper.AuditLogMapper">
 
-    <resultMap type="com.thorn.bbs.entity.AuditLog" id="AuditLogMap">
+    <resultMap type="com.thorn.bbs.entity.AuditLogRecord" id="AuditLogMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="success" column="success" jdbcType="INTEGER"/>
         <result property="exception" column="exception" jdbcType="VARCHAR"/>

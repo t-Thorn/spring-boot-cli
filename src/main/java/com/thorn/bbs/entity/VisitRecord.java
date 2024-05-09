@@ -25,7 +25,7 @@ public class VisitRecord extends Model<VisitRecord> {
     private String clientIp;
     @ApiModelProperty(value = " 客户端地区")
     private String clientArea;
-    @ApiModelProperty(value = " 访问类型1=导航 2=帖子")
+    @ApiModelProperty(value = " 访问类型1=导航 2=帖子 3=首页")
     private Integer visitType;
     @ApiModelProperty(value = " 创建时间")
     private Date createTime;

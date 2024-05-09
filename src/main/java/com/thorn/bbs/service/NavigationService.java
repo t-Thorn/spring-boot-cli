@@ -2,7 +2,7 @@ package com.thorn.bbs.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.thorn.bbs.admin.request.NavigationListRequest;
+import com.thorn.bbs.api.request.NavigationListRequest;
 import com.thorn.bbs.entity.Navigation;
 
 /**
