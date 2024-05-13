@@ -34,7 +34,7 @@ public class AuditLogAspect {
     public Object aroundMethod(ProceedingJoinPoint joinPoint, AuditLog auditLog) throws Throwable {
         Object result = null;
         Throwable throwable = null;
-        AuditLogRecord audit = null;
+        AuditLogRecord audit;
         auditLog = joinPoint.getTarget().getClass().getDeclaredAnnotation(AuditLog.class);
         audit = this.getAudit(auditLog, joinPoint);
 

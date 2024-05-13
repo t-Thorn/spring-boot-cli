@@ -51,5 +51,5 @@ public class UmsResource implements Serializable {
     private Boolean deleted;
 
     @ApiModelProperty(value = "是否删除")
-    private Boolean updateTime;
+    private Date updateTime;
 }

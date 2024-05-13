@@ -22,6 +22,7 @@ import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -62,6 +63,9 @@ public class ResourceInitManager implements ApplicationContextAware {
             Object value = entry.getValue();
             Class<?> controllerClass = AopUtils.getTargetClass(value);
             Api annotation = controllerClass.getAnnotation(Api.class);
+            if (Objects.isNull(annotation)) {
+                continue;
+            }
             String key = annotation.description().concat("-").concat(controllerClass.getSimpleName());
             UmsResourceCategory umsResourceCategory = null;
             if (!map.containsKey(key)) {
@@ -75,12 +79,18 @@ public class ResourceInitManager implements ApplicationContextAware {
 
             //添加资源
             RequestMapping baseMapping = controllerClass.getAnnotation(RequestMapping.class);
+            if (Objects.isNull(baseMapping)) {
+                continue;
+            }
             String[] basePaths = baseMapping.path();
 
             Method[] methods = controllerClass.getMethods();
             for (Method method : methods) {
                 RequestMapping subMapping = method.getAnnotation(RequestMapping.class);
                 ApiOperation apiMapping = method.getAnnotation(ApiOperation.class);
+                if (Objects.isNull(subMapping) || Objects.isNull(apiMapping)) {
+                    continue;
+                }
                 String[] subPaths = subMapping.path();
 
                 for (String basePath : basePaths) {

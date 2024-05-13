@@ -16,7 +16,7 @@ public class SwaggerConfig extends BaseSwaggerConfig {
     @Override
     public SwaggerProperties swaggerProperties() {
         return SwaggerProperties.builder()
-                .apiBasePackage("com.macro.mall.tiny.modules")
+                .apiBasePackage("com.thorn.bbs")
                 .title("bbs项目骨架")
                 .description("bbs项目骨架相关接口文档")
                 .contactName("macro")

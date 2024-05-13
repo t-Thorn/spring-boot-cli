@@ -23,10 +23,11 @@ jwt:
   tokenHead: 'Bearer admin-token-'  #JWT负载中拿到开头
 
 redis:
-  database: mall
+  database: 0
   key:
     admin: 'ums:admin'
     resourceList: 'ums:resourceList'
+    isAdmin: 'ums:isAdmin'
   expire:
     common: 86400 # 24小时
 

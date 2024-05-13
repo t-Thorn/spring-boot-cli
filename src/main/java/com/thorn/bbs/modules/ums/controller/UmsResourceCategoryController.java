@@ -20,7 +20,7 @@ import java.util.List;
  * Created by macro on 2020/2/5.
  */
 @Controller
-@Api(tags = "UmsResourceCategoryController", description = "后台资源分类管理")
+@Api(tags = "后台资源分类管理")
 @RequestMapping("/resourceCategory")
 public class UmsResourceCategoryController {
     @Autowired
