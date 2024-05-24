@@ -1,6 +1,8 @@
 package com.thorn.bbs.modules.ums.model;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -46,6 +48,10 @@ public class UmsAdmin implements Serializable {
 
     @ApiModelProperty(value = "备注信息")
     private String note;
+
+    @ApiModelProperty(value = "谷歌密钥")
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String googleSecret;
 
     @ApiModelProperty(value = "创建时间")
     private Date createTime;

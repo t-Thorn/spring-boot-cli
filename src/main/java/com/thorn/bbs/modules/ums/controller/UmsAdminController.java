@@ -4,8 +4,10 @@ import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.thorn.bbs.common.api.CommonPage;
 import com.thorn.bbs.common.api.CommonResult;
+import com.thorn.bbs.modules.ums.dto.UmsAdminGoogleBindParam;
 import com.thorn.bbs.modules.ums.dto.UmsAdminLoginParam;
 import com.thorn.bbs.modules.ums.dto.UmsAdminParam;
+import com.thorn.bbs.modules.ums.dto.UmsGoogleBindResponse;
 import com.thorn.bbs.modules.ums.dto.UpdateAdminPasswordParam;
 import com.thorn.bbs.modules.ums.model.UmsAdmin;
 import com.thorn.bbs.modules.ums.model.UmsRole;
@@ -73,6 +75,26 @@ public class UmsAdminController {
         return CommonResult.success(tokenMap);
     }
 
+    @ApiOperation(value = "绑定谷歌验证")
+    @RequestMapping(value = "/bindGoogleSecret", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult bindGoogleSecret(@Validated @RequestBody UmsAdminGoogleBindParam umsAdminGoogleBindParam) {
+        return CommonResult.success(adminService.bindGoogleCode(umsAdminGoogleBindParam));
+    }
+
+    @ApiOperation(value = "解绑谷歌验证")
+    @RequestMapping(value = "/unbindGoogleSecret", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult unbindGoogleSecret(@Validated @RequestBody UmsAdminGoogleBindParam umsAdminGoogleBindParam) {
+        return CommonResult.success(adminService.unbindGoogleSecret(umsAdminGoogleBindParam));
+    }
+
+    @ApiOperation(value = "获取谷歌验证绑定二维码")
+    @RequestMapping(value = "/getGoogleSecretUrl", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<UmsGoogleBindResponse> getGoogleSecretUrl() {
+        return CommonResult.success(adminService.getGoogleSecretUrl());
+    }
     @ApiOperation(value = "刷新token")
     @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)
     @ResponseBody

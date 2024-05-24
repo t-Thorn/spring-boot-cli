@@ -19,4 +19,6 @@ public class UmsAdminLoginParam {
     @NotEmpty
     @ApiModelProperty(value = "密码",required = true)
     private String password;
+    @ApiModelProperty(value = "谷歌验证码")
+    private String googleCode;
 }

@@ -26,6 +26,7 @@
         <velocity.version>2.3</velocity.version>
         <hutool.version>5.7.11</hutool.version>
         <ip2region.version>1.7.2</ip2region.version>
+        <codec.version>1.15</codec.version>
     </properties>
 
     <parent>
@@ -155,7 +156,18 @@
             <artifactId>ip2region</artifactId>
             <version>${ip2region.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
 
+        <!--密钥生成-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${codec.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

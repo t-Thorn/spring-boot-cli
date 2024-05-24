@@ -2,7 +2,9 @@ package com.thorn.bbs.modules.ums.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.thorn.bbs.modules.ums.dto.UmsAdminGoogleBindParam;
 import com.thorn.bbs.modules.ums.dto.UmsAdminParam;
+import com.thorn.bbs.modules.ums.dto.UmsGoogleBindResponse;
 import com.thorn.bbs.modules.ums.dto.UpdateAdminPasswordParam;
 import com.thorn.bbs.modules.ums.model.UmsAdmin;
 import com.thorn.bbs.modules.ums.model.UmsResource;
@@ -81,4 +83,10 @@ public interface UmsAdminService extends IService<UmsAdmin> {
      * 获取用户信息
      */
     UserDetails loadUserByUsername(String username);
+
+    UmsGoogleBindResponse getGoogleSecretUrl();
+
+    boolean bindGoogleCode(UmsAdminGoogleBindParam umsAdminGoogleBindParam);
+
+    boolean unbindGoogleSecret(UmsAdminGoogleBindParam umsAdminGoogleBindParam);
 }
