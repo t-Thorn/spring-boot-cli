@@ -5,8 +5,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.thorn.bbs.common.api.CommonPage;
 import com.thorn.bbs.common.api.CommonResult;
 import com.thorn.bbs.common.api.PageRequest;
-import com.thorn.bbs.entity.GlobalConfig;
-import com.thorn.bbs.service.GlobalConfigService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;

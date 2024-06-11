@@ -6,8 +6,6 @@ import com.thorn.bbs.annotation.AuditLog;
 import com.thorn.bbs.api.request.ReplyListRequest;
 import com.thorn.bbs.common.api.CommonPage;
 import com.thorn.bbs.common.api.CommonResult;
-import com.thorn.bbs.entity.Reply;
-import com.thorn.bbs.service.ReplyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;

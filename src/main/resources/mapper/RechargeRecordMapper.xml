@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thorn.bbs.mapper.RechargeRecordMapper">
+
+    <resultMap type="com.thorn.bbs.entity.RechargeRecord" id="RechargeRecordMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="merchantNo" column="merchant_no" jdbcType="VARCHAR"/>
+        <result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
+        <result property="merchantName" column="merchant_name" jdbcType="VARCHAR"/>
+        <result property="channelFlag" column="channel_flag" jdbcType="VARCHAR"/>
+        <result property="rechargeAmount" column="recharge_amount" jdbcType="NUMERIC"/>
+        <result property="fee" column="fee" jdbcType="NUMERIC"/>
+        <result property="realRechargeAmount" column="real_recharge_amount" jdbcType="NUMERIC"/>
+        <result property="tunnelCode" column="tunnel_code" jdbcType="VARCHAR"/>
+        <result property="tunnelName" column="tunnel_name" jdbcType="VARCHAR"/>
+        <result property="operatorId" column="operator_id" jdbcType="INTEGER"/>
+        <result property="operatorName" column="operator_name" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+</mapper>

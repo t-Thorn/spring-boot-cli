@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thorn.bbs.mapper.CashOutRecordMapper">
+
+    <resultMap type="com.thorn.bbs.entity.CashOutRecord" id="CashOutRecordMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="platformOrderNo" column="platform_order_no" jdbcType="VARCHAR"/>
+        <result property="merchantNo" column="merchant_no" jdbcType="VARCHAR"/>
+        <result property="merchantName" column="merchant_name" jdbcType="VARCHAR"/>
+        <result property="merchantOrderNo" column="merchant_order_no" jdbcType="VARCHAR"/>
+        <result property="requestType" column="request_type" jdbcType="INTEGER"/>
+        <result property="amount" column="amount" jdbcType="NUMERIC"/>
+        <result property="fee" column="fee" jdbcType="NUMERIC"/>
+        <result property="payee" column="payee" jdbcType="VARCHAR"/>
+        <result property="payeeCardNo" column="payee_card_no" jdbcType="VARCHAR"/>
+        <result property="idCardNo" column="id_card_no" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="tunnelCode" column="tunnel_code" jdbcType="VARCHAR"/>
+        <result property="tunnelName" column="tunnel_name" jdbcType="VARCHAR"/>
+        <result property="notifyUrl" column="notify_url" jdbcType="VARCHAR"/>
+        <result property="operatorId" column="operator_id" jdbcType="INTEGER"/>
+        <result property="operatorName" column="operator_name" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+</mapper>

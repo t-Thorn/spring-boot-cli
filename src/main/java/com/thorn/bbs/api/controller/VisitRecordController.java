@@ -6,8 +6,6 @@ import com.thorn.bbs.api.request.VisitRecordListRequest;
 import com.thorn.bbs.api.response.VisitRecordCountResponse;
 import com.thorn.bbs.common.api.CommonPage;
 import com.thorn.bbs.common.api.CommonResult;
-import com.thorn.bbs.entity.VisitRecord;
-import com.thorn.bbs.service.VisitRecordService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;

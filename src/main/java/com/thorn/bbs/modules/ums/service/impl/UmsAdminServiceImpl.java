@@ -50,7 +50,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 后台管理员管理Service实现类
@@ -60,7 +59,7 @@ import java.util.Objects;
 @Slf4j
 public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> implements UmsAdminService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
-    public static final Long ADMIN_ROLE_ID = 1L;
+
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
@@ -86,7 +85,9 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         QueryWrapper<UmsAdmin> wrapper = new QueryWrapper<>();
         wrapper.lambda().eq(UmsAdmin::getUsername, username);
         update(record, wrapper);
-    }    @Override
+    }
+
+    @Override
     public UmsAdmin getAdminByUsername(String username) {
         UmsAdmin admin = adminCacheService.getAdmin(username);
         if (admin != null) return admin;
@@ -160,7 +161,6 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         loginLog.setIp(request.getRemoteAddr());
         loginLogMapper.insert(loginLog);
     }
-
 
 
     @Override
@@ -278,13 +278,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         UmsAdmin admin = getAdminByUsername(username);
         if (admin != null) {
             List<UmsResource> resourceList = getResourceList(admin.getId());
-            Boolean isAdmin = adminCacheService.isAdmin(admin.getId());
-            if (Objects.isNull(isAdmin)) {
-                List<UmsRole> roleList = roleMapper.getRoleList(admin.getId());
-                isAdmin = roleList.stream().map(UmsRole::getId).anyMatch(r -> r.equals(ADMIN_ROLE_ID));
-                adminCacheService.setIsAdmin(admin.getId(), isAdmin);
-            }
-            return new AdminUserDetails(admin, resourceList, isAdmin);
+            List<UmsRole> roleList = roleMapper.getRoleList(admin.getId());
+            return new AdminUserDetails(admin, resourceList, roleList);
         }
         throw new UsernameNotFoundException("用户名或密码错误");
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thorn.bbs.mapper.TunnelMapper">
+
+    <resultMap type="com.thorn.bbs.entity.Tunnel" id="TunnelMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="tunnelCode" column="tunnel_code" jdbcType="VARCHAR"/>
+        <result property="tunnelName" column="tunnel_name" jdbcType="VARCHAR"/>
+        <result property="payBeginTime" column="pay_begin_time" jdbcType="VARCHAR"/>
+        <result property="payEndTime" column="pay_end_time" jdbcType="VARCHAR"/>
+        <result property="balance" column="balance" jdbcType="NUMERIC"/>
+        <result property="rechargeRate" column="recharge_rate" jdbcType="VARCHAR"/>
+        <result property="rechargePer" column="recharge_per" jdbcType="NUMERIC"/>
+        <result property="payCostPer" column="pay_cost_per" jdbcType="NUMERIC"/>
+        <result property="payLimit" column="pay_limit" jdbcType="NUMERIC"/>
+        <result property="payLowLimit" column="pay_low_limit" jdbcType="NUMERIC"/>
+        <result property="payHighLimit" column="pay_high_limit" jdbcType="NUMERIC"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+</mapper>
