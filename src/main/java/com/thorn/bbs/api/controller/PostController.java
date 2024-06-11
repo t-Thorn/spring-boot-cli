@@ -49,6 +49,7 @@ public class PostController {
 
     @ApiOperation("更改帖子状态")
     @PostMapping("changeStatus")
+    @AuditLog("更改帖子状态")
     public CommonResult<Boolean> list(@RequestBody PostStatusChangeRequest request) {
 
         return CommonResult.success(service.changeStatus(request));
