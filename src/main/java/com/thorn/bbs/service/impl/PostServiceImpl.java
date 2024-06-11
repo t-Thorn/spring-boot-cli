@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.common.collect.Lists;
 import com.thorn.bbs.api.request.PostListRequest;
+import com.thorn.bbs.api.request.PostStatusChangeRequest;
 import com.thorn.bbs.entity.Post;
 import com.thorn.bbs.enums.VisitRecordTypeEnum;
 import com.thorn.bbs.mapper.PostMapper;
@@ -48,6 +49,7 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
             );
         }
         return page(request.convert(new Post()), new LambdaQueryWrapper<Post>()
+                .select(Post::getId, Post::getPostName, Post::getPostType, Post::getOnHome, Post::getPostOrder, Post::getOwnerId, Post::getOwnerKey, Post::getStatus, Post::getHeat, Post::getReplyCount, Post::getCreateTime, Post::getUpdateTime)
                 .like(StringUtils.isNotBlank(request.getPostName()), Post::getPostName, request.getPostName())
                 .eq(Objects.nonNull(request.getPostType()), Post::getPostType, request.getPostType())
                 .eq(Objects.nonNull(request.getOnHome()), Post::getOnHome, request.getOnHome())
@@ -56,5 +58,13 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
                 .eq(Objects.nonNull(request.getStatus()), Post::getStatus, request.getStatus())
 
         );
+    }
+
+    @Override
+    public Boolean changeStatus(PostStatusChangeRequest request) {
+        return lambdaUpdate()
+                .set(Post::getStatus, request.getStatus())
+                .eq(Post::getId, request.getId())
+                .update();
     }
 }

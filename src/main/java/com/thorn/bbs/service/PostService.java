@@ -3,6 +3,7 @@ package com.thorn.bbs.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.thorn.bbs.api.request.PostListRequest;
+import com.thorn.bbs.api.request.PostStatusChangeRequest;
 import com.thorn.bbs.entity.Post;
 
 /**
@@ -13,4 +14,6 @@ import com.thorn.bbs.entity.Post;
  */
 public interface PostService extends IService<Post> {
     Page<Post> listPage(PostListRequest request);
+
+    Boolean changeStatus(PostStatusChangeRequest request);
 }

@@ -3,6 +3,7 @@ package com.thorn.bbs.api.controller;
 
 import com.thorn.bbs.annotation.AuditLog;
 import com.thorn.bbs.api.request.PostListRequest;
+import com.thorn.bbs.api.request.PostStatusChangeRequest;
 import com.thorn.bbs.common.api.CommonPage;
 import com.thorn.bbs.common.api.CommonResult;
 import com.thorn.bbs.entity.Post;
@@ -38,6 +39,19 @@ public class PostController {
     @PostMapping("list")
     public CommonResult<CommonPage<Post>> list(@RequestBody PostListRequest request) {
         return CommonResult.success(CommonPage.restPage(service.listPage(request)));
+    }
+
+    @ApiOperation("详情")
+    @PostMapping("detail/{id}")
+    public CommonResult<Post> detail(@PathVariable Long id) {
+        return CommonResult.success(service.getById(id));
+    }
+
+    @ApiOperation("更改帖子状态")
+    @PostMapping("changeStatus")
+    public CommonResult list(@RequestBody PostStatusChangeRequest request) {
+
+        return CommonResult.success(service.changeStatus(request));
     }
 
     @ApiOperation("创建")
